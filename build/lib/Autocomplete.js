@@ -76,6 +76,9 @@ var Autocomplete = function (_React$Component) {
       if (nextProps.autoHighlight && (this.props.value !== nextProps.value || this.state.highlightedIndex === null)) {
         this.setState(this.maybeAutoCompleteText);
       }
+      if (!nextProps.autoHighlight && this.props.value !== nextProps.value && this.state.highlightedIndex !== null) {
+        this.setState({ highlightedIndex: null });
+      }
     }
   }, {
     key: 'componentDidMount',
