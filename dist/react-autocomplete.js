@@ -83,14 +83,14 @@ var Autocomplete = function (_React$Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
+      if (this.props.value !== nextProps.value && this.state.highlightedIndex !== null) {
+        this.setState({ highlightedIndex: null });
+      }
       if (this.state.highlightedIndex !== null) {
         this.setState(this.ensureHighlightedIndex);
       }
       if (nextProps.autoHighlight && (this.props.value !== nextProps.value || this.state.highlightedIndex === null)) {
         this.setState(this.maybeAutoCompleteText);
-      }
-      if (!nextProps.autoHighlight && this.props.value !== nextProps.value && this.state.highlightedIndex !== null) {
-        this.setState({ highlightedIndex: null });
       }
     }
   }, {
